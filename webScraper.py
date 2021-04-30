@@ -43,11 +43,6 @@ def breadthSearch(start, end, depth):
    
     while len(queue) > 0:
         curr = queue.pop(0)
-        print("newLink = ", curr[1], 'from', curr[0])
-        for i in range(0, 3):
-            if i < len(queue):
-                print("\t", queue[i])
-        print("============================")
         
         nextLink = getWikiOnlyLinks(getLinksOut(curr[1]))
         for i in nextLink:
@@ -61,7 +56,6 @@ def breadthSearch(start, end, depth):
             newPath.append(i)
             #check
             if i == end:
-                print('DONE')
                 return newPath
 
             queue.append((newPath, i))
@@ -69,6 +63,8 @@ def breadthSearch(start, end, depth):
 start = '/wiki/Alan_Turing'
 #end = 'https://en.wikipedia.org/wiki/World_War_II'
 #end = '/wiki/Data'
+#end = '/wiki/Computer_scientist'
+#end = '/wiki/Midlands'
 #end = '/wiki/Philosophy'
 end = '/wiki/Algebraic_number'
 #getWikiOnlyLinks(getLinksOut(start))
@@ -76,5 +72,5 @@ end = '/wiki/Algebraic_number'
 #getWikiOnlyLinks(tmp)
 
 tmp = breadthSearch(start, end, 0)
-print("=============================")
+#print("=============================")
 print(tmp)
